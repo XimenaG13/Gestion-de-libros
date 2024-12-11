@@ -1,0 +1,15 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .pseudo-underline::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px; /* o el grosor que prefieras */
+    background-color: #6A0F49; /* Reemplaza con el valor hexadecimal de tu color primario */
+    margin-top: -3px; /* ajusta si es necesario para alinear con el texto */
+  }
+}
