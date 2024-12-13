@@ -1,11 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate para la navegación
 import fondo from "../images/fondo.jpg";
 
 function Login() {
     const [isRegistering, setIsRegistering] = useState(false);
+    const navigate = useNavigate(); // Hook para la navegación
 
     const toggleForm = () => {
         setIsRegistering(!isRegistering);
+    };
+
+    const handleLogin = (e) => {
+        e.preventDefault(); // Evita el comportamiento por defecto del formulario
+        navigate("/principal"); // Redirige a la página principal
     };
 
     return (
@@ -13,10 +20,11 @@ function Login() {
             <div className="relative flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-5xl">
                 {/* Imagen Dinámica */}
                 <div
-                    className={`w-full md:w-1/2 bg-cover bg-center transition-transform duration-700 ease-in-out ${isRegistering
+                    className={`w-full md:w-1/2 bg-cover bg-center transition-transform duration-700 ease-in-out ${
+                        isRegistering
                             ? "translate-x-0 md:translate-x-0 order-last"
                             : "translate-x-full md:translate-x-0 order-first"
-                        }`}
+                    }`}
                     style={{
                         backgroundImage: `url(${fondo})`,
                     }}
@@ -24,26 +32,26 @@ function Login() {
 
                 {/* Formulario Dinámico */}
                 <div
-                    className={`w-full md:w-1/2 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out ${isRegistering
+                    className={`w-full md:w-1/2 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out ${
+                        isRegistering
                             ? "translate-x-0 opacity-100"
                             : "-translate-x-full opacity-100 md:translate-x-0"
-                        }`}
+                    }`}
                 >
                     <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#162A40] to-[#4ED9B2] mb-4 text-center">
                         {isRegistering
                             ? "Llene todos los datos para poder registrarse"
-                            : "BIENVENIDO AL SISTEMA"
-                            }
+                            : "BIENVENIDO AL SISTEMA"}
                     </h1>
-                    <h1 className="mb-4 text-xl font-semibold">Libreria escolar</h1>
+                    <h1 className="mb-4 text-xl font-semibold">
+                        Libreria escolar
+                    </h1>
                     <h1 className="mb-6">Ingrese sus datos</h1>
-
 
                     {/* Formulario de Inicio de Sesión */}
                     {!isRegistering && (
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleLogin}>
                             <div>
-
                                 <input
                                     id="login-username"
                                     type="text"
@@ -53,7 +61,6 @@ function Login() {
                             </div>
 
                             <div>
-
                                 <input
                                     id="login-password"
                                     type="password"
@@ -75,7 +82,6 @@ function Login() {
                     {isRegistering && (
                         <form className="space-y-6">
                             <div>
-
                                 <input
                                     id="username"
                                     type="text"
@@ -85,7 +91,6 @@ function Login() {
                             </div>
 
                             <div>
-
                                 <input
                                     id="password"
                                     type="password"
@@ -95,7 +100,6 @@ function Login() {
                             </div>
 
                             <div>
-
                                 <input
                                     id="email"
                                     type="email"
@@ -105,25 +109,12 @@ function Login() {
                             </div>
 
                             <div>
-
                                 <input
                                     id="controlNumber"
                                     type="text"
                                     placeholder="No. de control"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4ED9B2]"
                                 />
-                            </div>
-
-                            <div>
-
-                                <select
-                                    id="role"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4ED9B2]"
-                                >
-                                    <option value="">Seleccione un rol</option>
-                                    <option value="admin">Administrador</option>
-                                    <option value="user">Usuario</option>
-                                </select>
                             </div>
 
                             <button

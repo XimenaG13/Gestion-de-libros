@@ -6,15 +6,51 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CarouselAutor from "../components/CarouselAutor";
+import nash from "../images/nash.jpg";
+import victoria from "../images/victoria.png";
+import fun from "../images/fun.png";
+import clan from "../images/clan.png";
+import cien from "../images/cien.jpeg";
+import lucia from "../images/lucia.jpg";
 
 const CardAdmin = () => {
   const data = [
-    { id: 1, title: "Título 1", description: "Descripción breve del contenido." },
-    { id: 2, title: "Título 2", description: "Descripción breve del contenido." },
-    { id: 3, title: "Título 3", description: "Descripción breve del contenido." },
-    { id: 4, title: "Título 4", description: "Descripción breve del contenido." },
-    { id: 5, title: "Título 5", description: "Descripción breve del contenido." },
-    { id: 6, title: "Título 6", description: "Descripción breve del contenido." },
+    {
+      id: 1,
+      title: "Las que no duermen NASH",
+      description: "Esta novela negra ha capturado la atención de los lectores por su intrincada trama y profundidad de personajes.",
+      image: nash,
+    },
+    {
+      id: 2,
+      title: "Victoria",
+      description: "Ganadora del Premio Planeta 2024, esta novela histórica explora temas de amor y traición en un contexto histórico detallado.",
+      image: victoria,
+    },
+    {
+      id: 3,
+      title: "Una Navidad muy fun, fun, fun",
+      description: "Una novela romántica que añade un toque festivo a las historias de amor contemporáneas, perfecta para la temporada navideña.",
+      image: fun,
+    },
+    {
+      id: 4,
+      title: "El Clan (Inspectora Elena Blanco 5)",
+      description: "La quinta entrega de la serie de la Inspectora Elena Blanco, que continúa cautivando a los aficionados al thriller y la novela negra.",
+      image: clan,
+    },
+    {
+      id: 5,
+      title: "Mi querida Lucía",
+      description: "Una novela que combina humor y romance, reflejando el estilo característico de su autora y su popularidad en redes sociales.",
+      image: lucia,
+    },
+    {
+      id: 6,
+      title: "Cien años de soledad",
+      description: "na obra maestra de la literatura latinoamericana, que narra la historia de la familia Buendía en el pueblo ficticio de Macondo, explorando temas de amor, soledad y el paso del tiempo. ",
+      image: cien,
+    },
   ];
 
   return (
@@ -29,21 +65,20 @@ const CardAdmin = () => {
         {data.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
+            className="bg-white rounded-lg shadow-md flex items-center p-4 hover:shadow-lg hover:scale-105 transition-transform"
           >
-            <div>
+            <div className="w-1/3">
+              <img
+                src={item.image}
+                alt={`Imagen de ${item.title}`}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+            <div className="w-2/3 pl-4">
               <h2 className="text-lg font-bold text-[#162A40] mb-2">
                 {item.title}
               </h2>
-              <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-            </div>
-            <div className="flex justify-between">
-              <button className="px-4 py-2 bg-[#4ED9B2] text-white rounded-md shadow hover:bg-[#3bb09a] transition">
-                Editar
-              </button>
-              <button className="px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-red-600 transition">
-                Borrar
-              </button>
+              <p className="text-gray-600 text-sm">{item.description}</p>
             </div>
           </div>
         ))}
@@ -54,11 +89,11 @@ const CardAdmin = () => {
 
 const Carousel = () => {
   const books = [
-    { id: 1, title: "Libro 1", description: "Libro más leído 1" },
-    { id: 2, title: "Libro 2", description: "Libro más leído 2" },
-    { id: 3, title: "Libro 3", description: "Libro más leído 3" },
-    { id: 4, title: "Libro 4", description: "Libro más leído 4" },
-    { id: 5, title: "Libro 5", description: "Libro más leído 5" },
+    { id: 1, title: "Don Quijote de la Mancha", description: "Publicada en el siglo XVII, esta obra maestra de la literatura española narra las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza." },
+    { id: 2, title: "El Corán", description: "Texto sagrado del Islam, se considera la palabra de Dios revelada al profeta Mahoma. Es una guía espiritual y legal para millones de musulmanes." },
+    { id: 3, title: "Citas del Presidente Mao Tse-Tung (El Libro Rojo)", description: "Compilación de discursos y escritos del líder chino Mao Zedong." },
+    { id: 4, title: "Harry Potter y la piedra filosofal", description: "Primera entrega de la exitosa saga de Harry Potter, que introduce a los lectores en el mundo mágico de Hogwarts y las aventuras del joven mago." },
+    { id: 5, title: "Cien años de soledad", description: "Una obra maestra de la literatura latinoamericana, que narra la historia de la familia Buendía en el pueblo ficticio de Macondo" },
   ];
 
   const settings = {
@@ -125,41 +160,35 @@ function Principal() {
             <p className="text-gray-300 mb-6">
               Atrévete a descubrir lo que te espera en nuestra librería
             </p>
-            <button className="px-6 py-3 bg-[#4ED9B2] text-black font-medium rounded-lg hover:bg-[#3bb09a] transition">
-              Explorar
-            </button>
           </div>
 
           {/* Tarjetas sobre la imagen */}
           <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-4">
-            <div className=" grid-cols-1 md:grid-cols-3 gap-6 hidden md:grid">
-              <div className="h-40 bg-[#4ED9B2] rounded-md shadow-md flex items-center justify-center">
-                <p className="text-xl font-bold text-[#162A40]">Opción 1</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="h-40 bg-[#4ED9B2] bg-opacity-90 rounded-md shadow-md flex items-center justify-center hover:scale-105 transition-transform">
+                <p className="text-xl font-bold text-[#162A40]">Conocimiento</p>
               </div>
-              <div className="h-40 bg-[#4ED9B2] rounded-md shadow-md flex items-center justify-center">
-                <p className="text-xl font-bold text-[#162A40]">Opción 2</p>
+              <div className="h-40 bg-[#4ED9B2] bg-opacity-90 rounded-md shadow-md flex items-center justify-center hover:scale-105 transition-transform">
+                <p className="text-xl font-bold text-[#162A40]">Aventura</p>
               </div>
-              <div className="h-40 bg-[#4ED9B2] rounded-md shadow-md flex items-center justify-center">
-                <p className="text-xl font-bold text-[#162A40]">Opción 3</p>
+              <div className="h-40 bg-[#4ED9B2] bg-opacity-90 rounded-md shadow-md flex items-center justify-center hover:scale-105 transition-transform">
+                <p className="text-xl font-bold text-[#162A40]">Inspiración</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tarjetas adicionales debajo */}
         <CardAdmin />
 
         {/* Carrusel de libros más leídos */}
-        
-            <Carousel />
+        <Carousel />
 
         {/* Carrusel de autores más leídos */}
-            <CarouselAutor />
+        <CarouselAutor />
       </div>
       <div className="mt-10">
         <Footer />
       </div>
-      
     </div>
   );
 }

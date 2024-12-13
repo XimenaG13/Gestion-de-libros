@@ -2,7 +2,7 @@ import React from "react";
 
 const CardAdmin = () => {
   const data = [
-    { id: 1, title: "Título 1", description: "Descripción breve del contenido." },
+    { id: 1, title: "", description: "" },
     { id: 2, title: "Título 2", description: "Descripción breve del contenido." },
     { id: 3, title: "Título 3", description: "Descripción breve del contenido." },
     { id: 4, title: "Título 4", description: "Descripción breve del contenido." },
@@ -28,9 +28,7 @@ const CardAdmin = () => {
             </div>
             {/* Botones */}
             <div className="flex justify-between">
-              <button className="px-4 py-2 bg-[#4ED9B2] text-white rounded-md shadow hover:bg-[#3bb09a] transition">
-                Editar
-              </button>
+              
               <button className="px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-red-600 transition">
                 Borrar
               </button>
